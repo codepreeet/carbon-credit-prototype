@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Credit Prototype</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>CCTS Carbon Credit Calculator</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Electricity Used (kWh):</label>
+            <input type="number" class="form-control" name="kwh" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+    {% if co2 is not none %}
+    <div class="mt-4">
+        <h4>Results</h4>
+        <p>CO₂ Emitted: {{ co2 }} kg</p>
+        <p>Predicted Next Month: {{ prediction }} kWh</p>
+        <p>Carbon Credits Earned: {{ credits }}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
